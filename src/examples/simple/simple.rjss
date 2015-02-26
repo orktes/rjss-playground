@@ -11,7 +11,7 @@ page {
 }
 
 title {
-  fontSize: 22;
+  font-size: 22;
   line-height: 28;
   height: 28;
   margin-bottom: 10;
