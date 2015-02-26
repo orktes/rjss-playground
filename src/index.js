@@ -8,7 +8,7 @@ var reactTools = require('react-tools');
 var rjssValue = require('text!./examples/simple/simple.rjss');
 var jsxValue = require('text!./examples/simple/simple.canvas');
 
-var jsxTemplateStart = require('text!./template_start.txt');
+var jsxTemplateStart = require('text!./template_start.txt') + '\n';
 var jsxTemplateEnd = require('text!./template_end.txt');
 
 var rjss = new RJSS();
@@ -51,30 +51,49 @@ var Main = React.createClass({
   },
   _recompileExample: function () {
     var compiledRJSS, compiledJSX, rjssModule, Canvas
-    var annotations = [];
+
 
     try {
       compiledRJSS = rjss.parseContent(this._lastRJSSValue).getCode();
+      this.getRJSSEditor().getSession().setAnnotations([]);
     } catch(e) {
       var message = e.message;
-
-
       //Parse error on line
-
+      var annotations = [];
       if (message.indexOf('Parse error on line ') > -1) {
         annotations.push({
           row: message.substring(20).split(':')[0] - 1,
           text: message,
           type: "error"
         });
+      } else {
+        annotations.push({
+          row: 0,
+          text: message,
+          type: "error"
+        });
       }
+      this.getRJSSEditor().getSession().setAnnotations(annotations);
+      return;
     }
-
-
-    this.getRJSSEditor().getSession().setAnnotations(annotations);
 
     try {
       compiledJSX = reactTools.transform(jsxTemplateStart + this._lastJSXValue + jsxTemplateEnd);
+      this.getJSXEditor().getSession().setAnnotations([]);
+    } catch(e) {
+      var annotations = [];
+      annotations.push({
+        row: e.lineNumber - jsxTemplateStart.split('\n').length,
+        column: e.column,
+        text: e.message,
+        type: "error"
+      });
+      this.getJSXEditor().getSession().setAnnotations(annotations);
+      return;
+    }
+
+
+    try {
       rjssModule = this.evalModule(compiledRJSS);
       Canvas = this.evalModule(compiledJSX, {
         styles: rjssModule,
