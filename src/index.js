@@ -19,8 +19,19 @@ var Main = React.createClass({
     this.recompileExample = _.debounce(this._recompileExample, 1000);
   },
   componentDidMount: function() {
-    this.refs.rjss_editor.editor.setValue(rjssValue);
-    this.refs.jsx_editor.editor.setValue(jsxValue);
+    var rjssEditor = this.getRJSSEditor();
+    rjssEditor.setValue(rjssValue);
+    rjssEditor.getSession().setOption("useWorker", false);
+
+    var jsxEditor = this.getJSXEditor();
+    jsxEditor.setValue(jsxValue);
+    jsxEditor.getSession().setOption("useWorker", false);
+  },
+  getRJSSEditor:  function () {
+    return this.refs.rjss_editor.editor;
+  },
+  getJSXEditor: function () {
+    return this.refs.jsx_editor.editor;
   },
   onResize: function () {
     this.setState({
@@ -39,11 +50,33 @@ var Main = React.createClass({
     };
   },
   _recompileExample: function () {
+    var compiledRJSS, compiledJSX, rjssModule, Canvas
+    var annotations = [];
+
     try {
-      var compiledRJSS = rjss.parseContent(this._lastRJSSValue).getCode();
-      var compiledJSX = reactTools.transform(jsxTemplateStart + this._lastJSXValue + jsxTemplateEnd);
-      var rjssModule = this.evalModule(compiledRJSS);
-      var Canvas = this.evalModule(compiledJSX, {
+      compiledRJSS = rjss.parseContent(this._lastRJSSValue).getCode();
+    } catch(e) {
+      var message = e.message;
+
+
+      //Parse error on line
+
+      if (message.indexOf('Parse error on line ') > -1) {
+        annotations.push({
+          row: message.substring(20).split(':')[0] - 1,
+          text: message,
+          type: "error"
+        });
+      }
+    }
+
+
+    this.getRJSSEditor().getSession().setAnnotations(annotations);
+
+    try {
+      compiledJSX = reactTools.transform(jsxTemplateStart + this._lastJSXValue + jsxTemplateEnd);
+      rjssModule = this.evalModule(compiledRJSS);
+      Canvas = this.evalModule(compiledJSX, {
         styles: rjssModule,
         react: React,
         reactCanvas: ReactCanvas
@@ -58,9 +91,7 @@ var Main = React.createClass({
           width={this.state.width}
           height={this.state.height} />,
         this.refs.canvas.getDOMNode());
-
     } catch(e) {
-      console.log(e);
     }
   },
   onRJSSChange: function (newValue) {
