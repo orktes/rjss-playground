@@ -4,6 +4,10 @@ var ReactCanvas = require('reactCanvas');
 var Surface = ReactCanvas.Surface;
 var Image = ReactCanvas.Image;
 var Text = ReactCanvas.Text;
+var Group = ReactCanvas.Group;
+var Layer = ReactCanvas.Layer;
+var ListView = ReactCanvas.ListView;
+
 
 var styles = require('styles');
 
@@ -11,6 +15,7 @@ var Component = module.exports = React.createClass({
   render: function () {
     return (
       <Surface
+        enableCSSLayout={true}
         width={this.props.width}
         height={this.props.height}
         left={this.props.left}

@@ -1,31 +1,33 @@
-@var width: 400;
+@var width: ${window.innerWidth / 3};
+@var height: ${window.innerHeight};
 
-text {
-  top:  10;
-  left: 10;
+page {
+  position: 'relative';
+  padding: 14;
   width: $width;
-  height: 20;
-  line-height: 20;
-  font-size: 12;
-  color: "#f00";
+  height: $height;
+  backgroundColor: '#f7f7f7';
+  flexDirection: 'column'
 }
 
-text2 {
-  top:  30;
-  left: 10;
-  width: $width;
-  height: 20;
-  line-height: 20;
-  font-size: 12;
-  color: "#0f0";
+title {
+  fontSize: 22;
+  lineHeight: 28;
+  height: 28;
+  marginBottom: 10;
+  color: '#333';
+  textAlign: 'center';
 }
 
-text3 {
-  top:  50;
-  left: 10;
-  width: $width;
-  height: 20;
-  line-height: 20;
-  font-size: 12;
-  color: "#00f";
+image {
+  width: ${width  - 28};
+  height: 300;
+}
+
+excerpt {
+  fontSize: 17;
+  lineHeight: 25;
+  marginTop: 15;
+  flex: 1;
+  color: '#333';
 }

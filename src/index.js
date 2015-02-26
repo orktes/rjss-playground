@@ -27,6 +27,8 @@ var Main = React.createClass({
       width: window.innerWidth / 3,
       height: window.innerHeight
     });
+
+    this.recompileExample();
   },
   getInitialState: function() {
     return {
@@ -57,7 +59,9 @@ var Main = React.createClass({
           height={this.state.height} />,
         this.refs.canvas.getDOMNode());
 
-    } catch(e) {}
+    } catch(e) {
+      console.log(e);
+    }
   },
   onRJSSChange: function (newValue) {
     if (this._lastRJSSValue === newValue) {
