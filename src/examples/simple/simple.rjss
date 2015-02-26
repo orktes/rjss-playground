@@ -1,0 +1,31 @@
+@var width: 400;
+
+text {
+  top:  10;
+  left: 10;
+  width: $width;
+  height: 20;
+  line-height: 20;
+  font-size: 12;
+  color: "#f00";
+}
+
+text2 {
+  top:  30;
+  left: 10;
+  width: $width;
+  height: 20;
+  line-height: 20;
+  font-size: 12;
+  color: "#0f0";
+}
+
+text3 {
+  top:  50;
+  left: 10;
+  width: $width;
+  height: 20;
+  line-height: 20;
+  font-size: 12;
+  color: "#00f";
+}

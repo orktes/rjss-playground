@@ -1,0 +1,17 @@
+body {
+  margin: 0px;
+}
+
+.view {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.sink {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.no-float {
+    float: left; /* thanks baxabbit */
+}

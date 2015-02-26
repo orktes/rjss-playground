@@ -1,0 +1,35 @@
+{
+  "name": "rjss-kitchen-sink",
+  "version": "0.0.1",
+  "description": "RJSS kitchen sink",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/orktes/rjss-kitchen-sink.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/orktes/rjss-kitchen-sink/issues"
+  },
+  "scripts": {
+    "start": "webpack --progress --colors --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "browser": {
+    "fs": false
+  },
+  "dependencies": {
+    "rjss": "~0.0.2",
+    "react-canvas": "0.0.1",
+    "react-ace": "git+https://github.com/orktes/react-ace.git",
+    "lodash": "~3.3.1",
+    "react-tools": "~0.12.2",
+    "react": "~0.13.0-beta.1"
+  },
+  "devDependencies": {
+    "webpack": "~1.6.0",
+    "jsx-loader": "~0.12.2",
+    "text-loader": "0.0.1"
+  }
+}

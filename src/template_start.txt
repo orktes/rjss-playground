@@ -1,0 +1,17 @@
+var React = require('react');
+var ReactCanvas = require('reactCanvas');
+
+var Surface = ReactCanvas.Surface;
+var Image = ReactCanvas.Image;
+var Text = ReactCanvas.Text;
+
+var styles = require('styles');
+
+var Component = module.exports = React.createClass({
+  render: function () {
+    return (
+      <Surface
+        width={this.props.width}
+        height={this.props.height}
+        left={this.props.left}
+        top={this.props.top}>
