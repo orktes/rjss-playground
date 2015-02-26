@@ -6,17 +6,17 @@ page {
   padding: 14;
   width: $width;
   height: $height;
-  backgroundColor: '#f7f7f7';
-  flexDirection: 'column'
+  background-color: '#f7f7f7';
+  flex-direction: 'column'
 }
 
 title {
   fontSize: 22;
-  lineHeight: 28;
+  line-height: 28;
   height: 28;
-  marginBottom: 10;
+  margin-bottom: 10;
   color: '#333';
-  textAlign: 'center';
+  text-align: 'center';
 }
 
 image {
@@ -25,9 +25,9 @@ image {
 }
 
 excerpt {
-  fontSize: 17;
-  lineHeight: 25;
-  marginTop: 15;
+  font-size: 17;
+  line-height: 25;
+  margin-top: 15;
   flex: 1;
   color: '#333';
 }
