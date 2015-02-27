@@ -60,19 +60,11 @@ var Main = React.createClass({
       var message = e.message;
       //Parse error on line
       var annotations = [];
-      if (message.indexOf('Parse error on line ') > -1) {
-        annotations.push({
-          row: message.substring(20).split(':')[0] - 1,
-          text: message,
-          type: "error"
-        });
-      } else {
-        annotations.push({
-          row: 0,
-          text: message,
-          type: "error"
-        });
-      }
+      annotations.push({
+        row: e.lineNumber || 0,
+        text: message,
+        type: "error"
+      });
       this.getRJSSEditor().getSession().setAnnotations(annotations);
       return;
     }

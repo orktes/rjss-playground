@@ -20,7 +20,7 @@
     "fs": false
   },
   "dependencies": {
-    "rjss": "~0.0.2",
+    "rjss": "~0.0.4",
     "react-canvas": "0.0.1",
     "react-ace": "git+https://github.com/orktes/react-ace.git",
     "lodash": "~3.3.1",
