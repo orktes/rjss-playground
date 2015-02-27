@@ -86,7 +86,9 @@ var Main = React.createClass({
 
 
     try {
-      rjssModule = this.evalModule(compiledRJSS);
+      var modules = {};
+      modules['react-canvas'] = ReactCanvas;
+      rjssModule = this.evalModule(compiledRJSS, modules);
       Canvas = this.evalModule(compiledJSX, {
         styles: rjssModule,
         react: React,
@@ -103,6 +105,7 @@ var Main = React.createClass({
           height={this.state.height} />,
         this.refs.canvas.getDOMNode());
     } catch(e) {
+      console.log(e);
     }
   },
   onRJSSChange: function (newValue) {

@@ -20,8 +20,8 @@
     "fs": false
   },
   "dependencies": {
-    "rjss": "~0.0.4",
-    "react-canvas": "0.0.1",
+    "rjss": "~0.0.5",
+    "react-canvas": "git+https://github.com/Flipboard/react-canvas.git",
     "react-ace": "git+https://github.com/orktes/react-ace.git",
     "lodash": "~3.3.1",
     "react-tools": "~0.12.2",

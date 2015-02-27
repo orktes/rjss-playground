@@ -1,33 +1,52 @@
+/* Playground is divided into three equal width panels */
 @var width: ${window.innerWidth / 3};
 @var height: ${window.innerHeight};
 
+/* Function for getting react-canvas FontFace */
+@func FontFace (fontName) {
+  return require('react-canvas').FontFace(fontName);
+}
+
+/* Common styles for all text rules */
+text {
+  font-face: FontFace('Georgia');
+  color: #333;
+}
+
 page {
-  position: 'relative';
+  position: relative;
   padding: 14;
   width: $width;
   height: $height;
-  background-color: '#f7f7f7';
-  flex-direction: 'column';
+  background-color: #f7f7f7;
+  flex-direction: column;
 }
 
-title {
+title extends text {
   font-size: 22;
   line-height: 28;
   height: 28;
   margin-bottom: 10;
-  color: '#333';
-  text-align: 'center';
+  text-align: center;
 }
 
 image {
-  width: ${width  - 28};
-  height: 300;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
 }
 
-excerpt {
+image_group {
+  position: relative;
+  flex: 1;
+  background-color: #eee;
+}
+
+excerpt extends text {
   font-size: 17;
   line-height: 25;
   margin-top: 15;
   flex: 1;
-  color: '#333';
 }

@@ -2,7 +2,9 @@
   <Text style={styles('title')}>
     Professor PuddinPop
   </Text>
-  <Image src='http://lorempixel.com/360/420/cats/1/' style={styles('image')} fadeIn={true} />
+  <Group style={styles('image_group')}>
+    <Image src='http://lorempixel.com/360/420/cats/1/' style={styles('image')} fadeIn={true} />
+  </Group>
   <Text style={styles('excerpt')}>
     With these words the Witch fell down in a brown, melted, shapeless mass and began to spread over the clean boards of the kitchen floor.  Seeing that she had really melted away to nothing, Dorothy drew another bucket of water and threw it over the mess.  She then swept it all out the door.  After picking out the silver shoe, which was all that was left of the old woman, she cleaned and dried it with a cloth, and put it on her foot again.  Then, being at last free to do as she chose, she ran out to the courtyard to tell the Lion that the Wicked Witch of the West had come to an end, and that they were no longer prisoners in a strange land.
   </Text>
