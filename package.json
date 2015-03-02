@@ -1,6 +1,6 @@
 {
   "name": "rjss-kitchen-sink",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "RJSS kitchen sink",
   "main": "index.js",
   "repository": {
@@ -17,7 +17,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "browser": {
-    "fs": false
+    "fs": false,
+    "enhanced-resolve": false
   },
   "dependencies": {
     "rjss": "~0.0.5",
