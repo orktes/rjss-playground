@@ -2,10 +2,8 @@
 @var width: ${window.innerWidth / 3};
 @var height: ${window.innerHeight};
 
-/* Function for getting react-canvas FontFace */
-@func FontFace (fontName) {
-  return require('react-canvas').FontFace(fontName);
-}
+/* Variable to hold react-canvas FontFace */
+@var FontFace: ${require('react-canvas').FontFace};
 
 /* Common styles for all text rules */
 text {
