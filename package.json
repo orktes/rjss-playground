@@ -21,7 +21,7 @@
     "enhanced-resolve": false
   },
   "dependencies": {
-    "rjss": "~0.0.5",
+    "rjss": "~0.1.0",
     "react-canvas": "git+https://github.com/Flipboard/react-canvas.git",
     "react-ace": "git+https://github.com/orktes/react-ace.git",
     "lodash": "~3.3.1",

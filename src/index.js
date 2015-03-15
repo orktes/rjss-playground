@@ -54,7 +54,7 @@ var Main = React.createClass({
 
 
     try {
-      compiledRJSS = rjss.parseContent(this._lastRJSSValue).getCode();
+      compiledRJSS = rjss.parseContentSync(this._lastRJSSValue).getCode();
       this.getRJSSEditor().getSession().setAnnotations([]);
     } catch(e) {
       var message = e.message;
